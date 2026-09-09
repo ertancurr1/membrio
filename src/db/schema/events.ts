@@ -1,4 +1,3 @@
-import { sql } from "drizzle-orm";
 import {
   index,
   integer,
@@ -11,6 +10,7 @@ import {
 import { users } from "./auth";
 import { branches } from "./branches";
 import { checkInMethodEnum, eventStatusEnum } from "./enums";
+import { members } from "./members";
 
 export const events = pgTable(
   "events",
@@ -85,6 +85,3 @@ export const attendance = pgTable(
     index("attendance_member_recent_idx").on(t.memberId, t.checkedInAt.desc()),
   ],
 );
-
-// Placed last to break circular type dependencies across foreign key relations
-import { members } from "./members";
