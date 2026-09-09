@@ -1,8 +1,8 @@
-![CI](https://github.com/ertancurr1/membrio/actions/workflows/ci.yml/badge.svg)
-
 # Membrio
 
-A membership,attendance, and event management platform for a fictional 12-branch cultural organisation.
+![CI](https://github.com/ertancurr1/membrio/actions/workflows/ci.yml/badge.svg)
+
+A membership, attendance, and event management platform for a fictional 12-branch cultural organisation.
 
 I built and shipped a production member-management system for a real 7-branch NGO. This project reimagines that same problem from scratch, without client constraints, pushed as far as the tech allows.
 
@@ -41,7 +41,7 @@ All accounts use the password `membrio-demo`.
 | Regional admin | `regional.kosovo@membrio.demo` | Prishtina + Prizren          |
 | Staff          | `staff1.skopje@membrio.demo`   | Skopje only, read + check-in |
 
-Once the dashboard lands, signing in as the regional admin and then the branch admin will show branch-scoped access in effect — the member list, event list, and audit log each narrow to the branches that account is assigned to.
+Once the dashboard lands, signing in as the regional admin and then the branch admin will show branch-scoped access in effect, the member list, event list, and audit log each narrow to the branches that account is assigned to.
 
 Search performance is measured, not asserted. See [docs/perf/search-baseline.md](docs/perf/search-baseline.md).
 
