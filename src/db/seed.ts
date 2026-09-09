@@ -21,7 +21,7 @@ const DEMO_PASSWORD = "membrio-demo";
 
 const NOW = new Date("2026-09-08T00:00:00.000Z");
 if (Number.isNaN(NOW.getTime())) {
-  throw new Error(`Invalid NOW constant in seed.ts — check the ISO string`);
+  throw new Error(`Invalid NOW constant in seed.ts - check the ISO string`);
 }
 const HISTORY_START = new Date(NOW);
 HISTORY_START.setMonth(HISTORY_START.getMonth() - HISTORY_MONTHS);
@@ -743,21 +743,26 @@ async function main() {
   }
   console.log(`Inserted ${auditRows.length} audit log entries.`);
 
+  const demoAccounts = [
+    ["Super admin", superAdminId],
+    ["Branch admin", userRows.find((u) => u.role === "branch_admin")?.id],
+    [
+      "Regional admin",
+      userRows.find((u) => u.email === "regional.kosovo@membrio.demo")?.id,
+    ],
+    ["Staff", userRows.find((u) => u.role === "staff")?.id],
+  ] as const;
+
   console.log(
     `\nSeed complete in ${((Date.now() - started) / 1000).toFixed(1)}s`,
   );
-  console.log("─".repeat(56));
-  console.log(`Super admin      admin@membrio.demo / ${DEMO_PASSWORD}`);
-  console.log(
-    `Branch admin     admin.skopje-center@membrio.demo / ${DEMO_PASSWORD}`,
-  );
-  console.log(
-    `Regional admin   regional.kosovo@membrio.demo / ${DEMO_PASSWORD}`,
-  );
-  console.log(
-    `Staff            staff1.skopje-center@membrio.demo / ${DEMO_PASSWORD}`,
-  );
-  console.log("─".repeat(56));
+  console.log("─".repeat(64));
+  for (const [label, id] of demoAccounts) {
+    const user = userRows.find((u) => u.id === id);
+    if (!user) continue;
+    console.log(`${label.padEnd(16)} ${user.email} / ${DEMO_PASSWORD}`);
+  }
+  console.log("─".repeat(64));
 
   await client.end();
 }
