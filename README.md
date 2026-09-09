@@ -17,3 +17,18 @@ Next.js 15 (App Router) · TypeScript strict · Postgres + Drizzle · Auth.js ·
 3. `npm run db:migrate`
 4. `npm run db:seed`
 5. `npm run dev`
+
+## Try the demo
+
+All accounts use the password `membrio-demo`.
+
+| Role           | Email                          | Scope                        |
+| -------------- | ------------------------------ | ---------------------------- |
+| Super admin    | `admin@membrio.demo`           | All 12 branches              |
+| Branch admin   | `admin.skopje@membrio.demo`    | Skopje only                  |
+| Regional admin | `regional.kosovo@membrio.demo` | Prishtina + Prizren          |
+| Staff          | `staff1.skopje@membrio.demo`   | Skopje only, read + check-in |
+
+Sign in as the regional admin and then the branch admin to see branch-scoped access in effect, the member list, event list, and audit log all narrow to the branches that account is assigned to.
+
+Search performance is measured, not asserted. See [docs/perf/search-baseline.md](docs/perf/search-baseline.md).
