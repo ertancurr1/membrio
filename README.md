@@ -1,12 +1,12 @@
 # Membrio
 
-![CI](https://github.com/ertancurr1/membrio/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/ertancurr1/membrio/actions/workflows/ci.yml/badge.svg)](https://github.com/ertancurr1/membrio/actions/workflows/ci.yml)
 
 A membership, attendance, and event management platform for a fictional 12-branch cultural organisation.
 
 I built and shipped a production member-management system for a real 7-branch NGO. This project reimagines that same problem from scratch, without client constraints, pushed as far as the tech allows.
 
-**Status:** in progress. Schema, branch-scoped RBAC, deterministic seed (12 branches, 12,400 members, 451 events, 27,421 attendance records), and the scoped data-access layer are complete and tested. UI is next. The demo accounts below are seeded but not yet reachable through a sign-in page.
+**Status:** in progress. Schema, branch-scoped RBAC, deterministic seed (12 branches, 12,400 members, 451 events, 27,421 attendance records), the scoped data-access layer, authentication, and a server-rendered member dashboard are complete and tested. Virtualized list and real-time layer next.
 
 ## Stack
 
@@ -41,7 +41,7 @@ All accounts use the password `membrio-demo`.
 | Regional admin | `regional.kosovo@membrio.demo` | Prishtina + Prizren          |
 | Staff          | `staff1.skopje@membrio.demo`   | Skopje only, read + check-in |
 
-Once the dashboard lands, signing in as the regional admin and then the branch admin will show branch-scoped access in effect, the member list, event list, and audit log each narrow to the branches that account is assigned to.
+Sign in as the regional admin and then the branch admin to see branch-scoped access in effect. The branch tabs, member counts, and search results each narrow to the branches that account is assigned to.
 
 Search performance is measured, not asserted. See [docs/perf/search-baseline.md](docs/perf/search-baseline.md).
 
